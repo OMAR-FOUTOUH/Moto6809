@@ -1,0 +1,85 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 65536 bytes for Failed to commit metaspace.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Zero Based Compressed Oops mode in which the Java heap is
+#     placed in the first 32GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 32GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (virtualSpaceNode.cpp:112), pid=21288, tid=15692
+#
+# JRE version: OpenJDK Runtime Environment Temurin-21.0.1+12 (21.0.1+12) (build 21.0.1+12-LTS)
+# Java VM: OpenJDK 64-Bit Server VM Temurin-21.0.1+12 (21.0.1+12-LTS, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: --enable-preview -XX:+ShowCodeDetailsInExceptionMessages EditeurMoto
+
+Host: Intel(R) Core(TM) i5-5300U CPU @ 2.30GHz, 4 cores, 11G,  Windows 10 , 64 bit Build 19041 (10.0.19041.3636)
+Time: Sun Dec 10 05:30:58 2023 Morocco Daylight Time elapsed time: 0.464920 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000020205f8ab10):  JavaThread "main"             [_thread_in_vm, id=15692, stack(0x0000007784500000,0x0000007784600000) (1024K)]
+
+Stack: [0x0000007784500000,0x0000007784600000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x6c7789]
+V  [jvm.dll+0x8a2011]
+V  [jvm.dll+0x8a44ae]
+V  [jvm.dll+0x8a4b83]
+V  [jvm.dll+0x27f936]
+V  [jvm.dll+0x89dd8e]
+V  [jvm.dll+0x66a6f5]
+V  [jvm.dll+0x66a75a]
+V  [jvm.dll+0x66cf12]
+V  [jvm.dll+0x66cde2]
+V  [jvm.dll+0x66b0ce]
+V  [jvm.dll+0x26aa76]
+V  [jvm.dll+0x216e57]
+V  [jvm.dll+0x20c8be]
+V  [jvm.dll+0x5a9d5c]
+V  [jvm.dll+0x21df9a]
+V  [jvm.dll+0x819d71]
+V  [jvm.dll+0x81ada4]
+V  [jvm.dll+0x81b35d]
+V  [jvm.dll+0x81aff8]
+V  [jvm.dll+0x26d10b]
+V  [jvm.dll+0x3d2c5a]
+C  0x0000020217d4ed06
+
+The last pc belongs to ldc_w (printed below).
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  javax.swing.plaf.basic.BasicTextUI.getDragListener()Ljavax/swing/plaf/basic/BasicTextUI$DragListener;+0 java.desktop@21.0.1
+j  javax.swing.plaf.basic.BasicTextUI.<init>()V+29 java.desktop@21.0.1
+j  javax.swing.plaf.basic.BasicTextAreaUI.<init>()V+1 java.desktop@21.0.1
+j  javax.swing.plaf.basic.BasicTextAreaUI.createUI(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;+4 java.desktop@21.0.1
+j  java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;+10 java.base@21.0.1
+j  java.lang.invoke.LambdaForm$MH+0x000002022700e000.invoke(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;+33 java.base@21.0.1
+j  java.lang.invoke.Invokers$Holder.invokeExact_MT(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;+20 java.base@21.0.1
+j  jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+55 java.base@21.0.1
+j  jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+23 java.base@21.0.1
+j  java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+102 java.base@21.0.1
+j  javax.swing.UIDefaults.getUI(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;+129 java.desktop@21.0.1
+j  javax.swing.UIManager.getUI(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;+37 java.desktop@21.0.1
+j  javax.swing.text.JTextComponent.updateUI()V+2 java.desktop@21.0.1
+j  javax.swing.text.JTextComponent.<init>()V+62 java.desktop@21.0.1
+j  javax.swing.JTextArea.<init>(Ljavax/swing/text/Document;Ljava/lang/String;II)V+1 java.desktop@21.0.1
+j  javax.swing.JTextArea.<init>()V+5 java.desktop@21.0.1
+j  EditeurMoto.main([Ljava/lang/String;)V+14
+v  ~StubRoutines::call_stub 0x0000020217d4100d
+ldc_w  19 ldc_w  [0x0000020217d4ec60, 0x0000020217d4ef10]  688 bytes
